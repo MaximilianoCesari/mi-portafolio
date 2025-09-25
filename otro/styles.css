@@ -1,0 +1,62 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Poppins', sans-serif; background:#141414; color:white; scroll-behavior:smooth; }
+
+/* Hero */
+.hero {
+  background: url('../img/hero-bg.jpg') center/cover no-repeat;
+  height:100vh;
+  display:flex; justify-content:center; align-items:center;
+  text-align:center;
+  position:relative;
+}
+.hero::after {
+  content:""; position:absolute; top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.6);
+}
+.hero-content { position:relative; z-index:1; animation: fadeIn 2s ease; }
+.hero h1 { font-size:48px; margin-bottom:20px; }
+.hero h1 span { color:#e50914; }
+.hero p { font-size:20px; margin-bottom:30px; max-width:600px; margin:auto; }
+.btn {
+  padding:12px 24px; border:none; border-radius:5px;
+  background:#e50914; color:white; font-size:18px; cursor:pointer;
+  transition: all 0.3s;
+}
+.btn:hover { background:#b00610; transform: scale(1.05); }
+
+/* Carrusel */
+#proyectos { padding:100px 30px; text-align:center; }
+.carrusel-container { position:relative; overflow:hidden; }
+.carrusel {
+  display:flex; gap:20px; transition: transform 0.5s ease;
+}
+.card {
+  min-width:250px; background:#222; border-radius:10px; overflow:hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card img { width:100%; display:block; }
+.card h3 { padding:15px; font-size:18px; }
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
+.flecha {
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(0,0,0,0.5); color:white; border:none; font-size:24px;
+  padding:10px; cursor:pointer; z-index:2;
+  transition: background 0.3s;
+}
+.flecha:hover { background:rgba(229,9,20,0.8); }
+.flecha.izq { left:0; }
+.flecha.der { right:0; }
+
+/* Secciones */
+section { min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:80px 30px; opacity:0; transform: translateY(50px); transition: all 1s ease; }
+section.visible { opacity:1; transform: translateY(0); }
+#sobre-mi, #contacto { background:#1c1c1c; }
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
